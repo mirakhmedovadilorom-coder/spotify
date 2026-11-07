@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:text="Волна"
+        android:textColor="@color/text"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Музыка без подписки и интернета"
+        android:textColor="@color/mute"
+        android:textSize="13sp" />
+
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_field"
+        android:hint="Поиск: песня или исполнитель"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textColor="@color/text"
+        android:textColorHint="@color/mute"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvAll"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_chip"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="Все"
+            android:textColor="@color/text"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvLiked"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_chip"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="Любимые"
+            android:textColor="@color/text"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_chip"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="+ Свои треки"
+            android:textColor="@color/text"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btnShuffleAll"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_btn"
+        android:drawableStart="@drawable/ic_shuffle"
+        android:drawablePadding="8dp"
+        android:gravity="center"
+        android:paddingStart="18dp"
+        android:paddingEnd="22dp"
+        android:text="Перемешать и играть"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp" />
+
+    <TextView
+        android:id="@+id/tvEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="24dp"
+        android:textColor="@color/mute"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/mini"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/bg_mini"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingEnd="6dp">
+
+            <ImageView
+                android:id="@+id/miniCover"
+                android:layout_width="44dp"
+                android:layout_height="44dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/miniTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/text"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/miniArtist"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/mute"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/miniPrev"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@null"
+                android:contentDescription="Назад"
+                android:src="@drawable/ic_prev" />
+
+            <ImageButton
+                android:id="@+id/miniPlay"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@null"
+                android:contentDescription="Играть / пауза"
+                android:src="@drawable/ic_play" />
+
+            <ImageButton
+                android:id="@+id/miniNext"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@null"
+                android:contentDescription="Вперёд"
+                android:src="@drawable/ic_next" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/miniProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:max="1000"
+            android:progressTint="@color/accent"
+            android:progressBackgroundTint="@color/panel" />
+    </LinearLayout>
+</LinearLayout>
